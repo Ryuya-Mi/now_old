@@ -1,0 +1,9 @@
+<%= @room.name %>
+<%= form_for([@room, @vote]) do |f| %>
+    <%= f.hidden_field :now_old, value: old %>
+  <%= f.submit(['昔に投票する']) %>
+<% end %>
+<%= form_for([@room, @vote]) do |f| %>
+  <%= f.hidden_field :now_old, value: now %>
+  <%= f.submit(['今に投票する']) %>
+<% end %>

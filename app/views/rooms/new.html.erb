@@ -1,0 +1,19 @@
+<%= form_for(@room) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <br>
+  <%= f.fields_for :now do |n| %>
+    <%= n.text_field :name %>
+    <%= n.text_field :image %>
+  <% end %>
+
+  <br>
+  <%= f.fields_for :old do |n| %>
+    <%= n.text_field :name %>
+    <%= n.text_field :image %>
+  <% end %>
+
+  <br>
+  <%= f.submit %>
+<% end %>

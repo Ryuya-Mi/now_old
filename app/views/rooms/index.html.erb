@@ -1,0 +1,5 @@
+<%= link_to '新規投稿', new_room_path %>
+<br>
+<% @rooms.each do |room| %>
+  <%= link_to room.name, room_path(room.id) %>
+<% end %>
