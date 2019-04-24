@@ -16,7 +16,11 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @now = Vote.now_by_room(params[:id])
+    @old = Vote.old_by_room(params[:id])
     @vote = Vote.new
+    @comment = Comment.new
+    @comments = Comment.all_by_room(params[:id])
   end
 
   def edit

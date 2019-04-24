@@ -961,74 +961,70 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="245" parent="15" name="ar_internal_metadata"/>
-    <table id="246" parent="15" name="nows"/>
-    <table id="247" parent="15" name="olds"/>
-    <table id="248" parent="15" name="rooms"/>
-    <table id="249" parent="15" name="schema_migrations"/>
-    <table id="250" parent="15" name="votes"/>
-    <column id="251" parent="245" name="key">
+    <table id="246" parent="15" name="comments"/>
+    <table id="247" parent="15" name="nows"/>
+    <table id="248" parent="15" name="olds"/>
+    <table id="249" parent="15" name="rooms"/>
+    <table id="250" parent="15" name="schema_migrations"/>
+    <table id="251" parent="15" name="votes"/>
+    <column id="252" parent="245" name="key">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="245" name="value">
+    <column id="253" parent="245" name="value">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="245" name="created_at">
+    <column id="254" parent="245" name="created_at">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="245" name="updated_at">
+    <column id="255" parent="245" name="updated_at">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="255" parent="245" name="PRIMARY">
+    <key id="256" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>key</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="256" parent="246" name="id">
+    <column id="257" parent="246" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="246" name="room_id">
+    <column id="258" parent="246" name="room_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="246" name="name">
+    <column id="259" parent="246" name="text">
       <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="259" parent="246" name="image">
-      <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="260" parent="246" name="created_at">
-      <Position>5</Position>
+      <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="261" parent="246" name="updated_at">
-      <Position>6</Position>
+      <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="262" parent="246" name="index_nows_on_room_id">
+    <index id="262" parent="246" name="index_comments_on_room_id">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1037,7 +1033,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="264" parent="246" name="fk_rails_8e757f4783">
+    <foreign-key id="264" parent="246" name="fk_rails_9173c93ba1">
       <ColNames>room_id</ColNames>
       <RefSchemaName>now-vs-old_development</RefSchemaName>
       <RefTableName>rooms</RefTableName>
@@ -1077,7 +1073,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="271" parent="247" name="index_olds_on_room_id">
+    <index id="271" parent="247" name="index_nows_on_room_id">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1086,7 +1082,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="273" parent="247" name="fk_rails_c90ab30c8b">
+    <foreign-key id="273" parent="247" name="fk_rails_8e757f4783">
       <ColNames>room_id</ColNames>
       <RefSchemaName>now-vs-old_development</RefSchemaName>
       <RefTableName>rooms</RefTableName>
@@ -1099,85 +1095,134 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="248" name="name">
+    <column id="275" parent="248" name="room_id">
       <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="276" parent="248" name="name">
+      <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="248" name="created_at">
-      <Position>3</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="277" parent="248" name="updated_at">
+    <column id="277" parent="248" name="image">
       <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="278" parent="248" name="created_at">
+      <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="278" parent="248" name="PRIMARY">
+    <column id="279" parent="248" name="updated_at">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="280" parent="248" name="index_olds_on_room_id">
+      <ColNames>room_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="281" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="279" parent="249" name="version">
-      <Position>1</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="280" parent="249" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>version</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="281" parent="250" name="id">
+    <foreign-key id="282" parent="248" name="fk_rails_c90ab30c8b">
+      <ColNames>room_id</ColNames>
+      <RefSchemaName>now-vs-old_development</RefSchemaName>
+      <RefTableName>rooms</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="283" parent="249" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="250" name="room_id">
+    <column id="284" parent="249" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="249" name="created_at">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="249" name="updated_at">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="287" parent="249" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="288" parent="250" name="version">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="289" parent="250" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>version</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="290" parent="251" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="251" name="room_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="250" name="ip_address">
+    <column id="292" parent="251" name="ip_address">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="250" name="now_old">
+    <column id="293" parent="251" name="now_old">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="250" name="created_at">
+    <column id="294" parent="251" name="created_at">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="250" name="updated_at">
+    <column id="295" parent="251" name="updated_at">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="287" parent="250" name="index_votes_on_room_id">
+    <index id="296" parent="251" name="index_votes_on_room_id">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="288" parent="250" name="PRIMARY">
+    <key id="297" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="289" parent="250" name="fk_rails_f3c2ea6fd4">
+    <foreign-key id="298" parent="251" name="fk_rails_f3c2ea6fd4">
       <ColNames>room_id</ColNames>
       <RefSchemaName>now-vs-old_development</RefSchemaName>
       <RefTableName>rooms</RefTableName>

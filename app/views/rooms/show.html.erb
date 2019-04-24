@@ -7,3 +7,17 @@
   <%= f.hidden_field :now_old, value: now %>
   <%= f.submit(['今に投票する']) %>
 <% end %>
+
+今：<%= @now.count %>
+昔：<%= @old.count %>
+
+<%= form_for([@room, @comment]) do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit(['コメントする']) %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <br>
+  <%= comment.text %>
+<% end %>
+

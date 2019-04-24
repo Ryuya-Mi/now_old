@@ -6,6 +6,20 @@ class Vote < ApplicationRecord
   # @return [Array<Integer>] 全てのIPアドレスの配列
   #
   def self.all_ip
-    Vote.all.map(&:ip_address)
+    all.map(&:ip_address)
+  end
+
+  #
+  # @return [Array<Vote>]
+  #
+  def self.old_by_room(room_id)
+    where(room_id: room_id, now_old: 1)
+  end
+
+  #
+  # @return [Array<Vote>] 全てのIPアドレスの配列
+  #
+  def self.now_by_room(room_id)
+    where(room_id: room_id, now_old: 2)
   end
 end
